@@ -34,7 +34,7 @@ var map = new mapboxgl.Map({
 });
 
 //Add Images
-map.on("load", addFillPatternImages());
+addFillPatternImages();
 
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 map.addControl(new mapboxgl.ScaleControl() );
