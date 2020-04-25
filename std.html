@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Display a map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+<script src='./fill-pattern-image.js'></script>
+<style>
+body { margin:0; padding:0; }
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+ 
+<div id='map'></div>
+
+
+<script>
+var map = new mapboxgl.Map({
+  container: 'map', // container id
+  hash: true, //add #position on URL
+  style: './std.json', // stylesheet location
+  center: [139.78148, 35.768793], // starting position [lng, lat]
+  zoom: 15, // starting zoom
+  maxZoom: 18,
+  localIdeographFontFamily: ['MS Gothic', 'Hiragino Kaku Gothic Pro', 'sans-serif']
+});
+
+//Add Images
+addFillPatternImages();
+
+map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+map.addControl(new mapboxgl.ScaleControl() );
+
+</script>
+ 
+</body>
+</html>
